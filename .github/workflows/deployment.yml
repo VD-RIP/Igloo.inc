@@ -3,7 +3,7 @@ name: Deploy Status
 on:
   push:
     branches:
-      - main # Change to 'master' if that is your default branch
+      - main
 
 jobs:
   deployment:
@@ -12,5 +12,14 @@ jobs:
       name: Production
       url: https://igloo-replica.netlify.app
     steps:
-      - name: Deploy indicator
+      - name: Set deployment status
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ github.token }}
+          environment_url: https://igloo-replica.netlify.app
+          state: 'success'
+          deployment_id: ${{ github.event.deployment.id }}
+        continue-on-error: true
+
+      - name: Deploy log
         run: echo "Deployed to https://igloo-replica.netlify.app"
