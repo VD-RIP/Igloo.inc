@@ -1,0 +1,16 @@
+name: Deploy Status
+
+on:
+  push:
+    branches:
+      - main # Change to 'master' if that is your default branch
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://igloo-replica.netlify.app
+    steps:
+      - name: Deploy indicator
+        run: echo "Deployed to https://igloo-replica.netlify.app"
