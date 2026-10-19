@@ -1,7 +1,7 @@
 {
-  "name": "igloo-inc-reverse-engineered",
+  "name": "igloo-inc",
   "version": "1.0.0",
-  "description": "Full reverse-engineered replica, asset tree, shaders, and architecture of igloo.inc",
+  "description": "Interactive 3D experience powered by Three.js, custom shaders, and WebGL",
   "main": "src/SceneController.js",
   "type": "module",
   "scripts": {
@@ -11,8 +11,9 @@
   },
   "keywords": [
     "threejs",
-    "reverse-engineering",
     "webgl",
+    "3d-graphics",
+    "shaders",
     "draco",
     "ktx2",
     "basis",
