@@ -1,7 +1,11 @@
 {
   "name": "igloo-inc",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Asset tree, shaders, and architecture of igloo.inc",
+=======
+  "description": "Interactive 3D experience powered by Three.js, custom shaders, and WebGL",
+>>>>>>> d39975d286ab4ba67b40efdebf9a394c8608489a
   "main": "src/SceneController.js",
   "type": "module",
   "scripts": {
@@ -12,6 +16,8 @@
   "keywords": [
     "threejs",
     "webgl",
+    "3d-graphics",
+    "shaders",
     "draco",
     "ktx2",
     "basis",
