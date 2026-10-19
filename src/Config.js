@@ -1,6 +1,5 @@
 /**
- * Igloo.inc Reverse-Engineered Site Configuration
- * Extracted from App3D-d68cb154.js bundle
+ * Igloo.inc Site Configuration
  */
 
 export const Config = {
@@ -8,7 +7,6 @@ export const Config = {
     title: "Igloo Inc.",
     description: "Our mission is to create the largest onchain community, driving the consumer crypto revolution.",
     url: "https://igloo.inc",
-    author: "Abeto Studio (https://abeto.co)",
     socialImage: "./assets/images/social.jpg",
   },
 

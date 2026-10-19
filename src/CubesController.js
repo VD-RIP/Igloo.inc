@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Cubes Controller
+ * Igloo.inc Cubes Controller
  * 
- * Reconstructs:
+ * Manages:
  * - The floating ice cubes (cube1, cube3) with custom roughness, normal maps, and envMap reflections
  * - The encapsulated internal objects (Pudgy Penguin and Overpass Logo)
  * - Animated caustics and noise shaders on internal surfaces

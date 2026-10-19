@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Post-Processing Pipeline
+ * Igloo.inc Post-Processing Pipeline
  * 
- * Reconstructs:
+ * Pipeline:
  * - PMNDRS EffectComposer stack
  * - 3D Tetrahedral Color LUT grading (`cube_scene.ktx2` and `igloo_scene.ktx2`)
  * - Depth of field / Bokeh blur (`bokeh.ktx2`)

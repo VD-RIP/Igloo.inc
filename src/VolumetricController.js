@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Volumetric Controller
+ * Igloo.inc Volumetric Controller
  * 
- * Reconstructs the 3D VDB volumetric raymarching shader system:
+ * 3D VDB volumetric raymarching shader system:
  * - Reads 3D textures (`peachesbody_64.ktx2`, `x_64.ktx2`, `medium_32.ktx2`)
  * - Raymarches through unit bounding boxes to render density, absorption, and lighting
  * - Represents interactive onchain / social portals in 3D space

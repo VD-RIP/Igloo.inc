@@ -1,10 +1,10 @@
-# Igloo Inc. (`igloo.inc`) — Complete Reverse Engineering Report & Offline Replica
+# Igloo Inc. (`igloo.inc`) — 3D WebGL Web Experience
 
-A comprehensive reverse-engineering study, asset extraction, shader analysis, and runnable offline replica of the award-winning **[igloo.inc](https://igloo.inc)** website (built by creative studio **[Abeto](https://abeto.co)** for Pudgy Penguins / Igloo Inc.).
+An offline-capable standalone build, asset tree, custom shaders, and modular architecture of the **[igloo.inc](https://igloo.inc)** website.
 
 ---
 
-## 1. Executive Summary & Tech Stack
+## 1. Tech Stack Overview
 
 | Component | Technology / Implementation |
 |---|---|
@@ -43,25 +43,23 @@ A comprehensive reverse-engineering study, asset extraction, shader analysis, an
 │   ├── msdfworker-*.js     # MSDF font geometry generator worker
 │   ├── App3D-d68cb154.js   # Main 3D WebGL application bundle (1.48 MB)
 │   └── index-2e130bc1.js   # Svelte loader and mount orchestrator (16 KB)
-├── shaders/                # Extracted and deobfuscated GLSL shaders
+├── shaders/                # Custom GLSL shaders
 │   ├── volumetric_vdb.frag # 3D texture raymarching shader for portals
 │   ├── ice_interior.frag   # Refractive ice interior with dual caustics & noise
 │   ├── shattered_ring.frag # Glowing celestial ring shader
 │   ├── floor_wind.vert     # Wind displacement vertex shader
 │   └── tetrahedral_lut.frag# 3D LUT tetrahedral color grading pass
-├── src/                    # Clean modularized TypeScript/ES6 architecture
-│   ├── Config.js           # Extracted site copy, portfolio items, palette, audio
+├── src/                    # Modular TypeScript/ES6 architecture
+│   ├── Config.js           # Site copy, portfolio items, palette, audio
 │   ├── AssetManager.js     # Draco, KTX2, EXR, and MSDF loading pipeline
 │   ├── AudioController.js  # Spatial audio engine & volume scheduler
 │   ├── CubesController.js  # Ice cubes (cube1, cube3) & internal models (pudgy, overpass)
 │   ├── VolumetricController.js # 3D VDB raymarching controller
 │   ├── PostProcessing.js   # 3D LUT grading & post-processing passes
 │   └── SceneController.js  # Main Three.js scene graph orchestrator
-├── tools/                  # Python REA inspection and extraction scripts
-├── index.html              # Patched offline-ready entrypoint
-├── index.original.html     # Original upstream production HTML
-├── site-config.json        # Parsed structured site data and content
-├── serve.py                # Zero-dependency local server with correct MIME types
+├── index.html              # Offline-ready entrypoint
+├── site-config.json        # Structured site data and content
+├── serve.py                # Local server with correct MIME types
 └── package.json            # Node.js runner scripts
 ```
 
@@ -86,7 +84,7 @@ npx serve -l 8080
 
 ---
 
-## 4. Key Reverse Engineering Findings
+## 4. Architecture & Key Features
 
 ### 4.1. The 3D Scene Architecture
 The experience is built around a continuous vertical camera journey:
@@ -108,7 +106,7 @@ The experience is built around a continuous vertical camera journey:
      - `medium_32.ktx2` (Medium portal)
    - Raymarched with 64 steps inside the unit cube with custom density absorption.
 
-### 4.2. Shaders Deep-Dive
+### 4.2. Shaders
 - **Dual Caustics (`shaders/ice_interior.frag`)**:
   Computes moving caustics by sampling a caustics texture at two different scale and velocity offsets, taking `min(caustic1, caustic2)` to create sharp interference caustic lines.
 - **Tetrahedral Color Grading (`shaders/tetrahedral_lut.frag`)**:
@@ -116,8 +114,8 @@ The experience is built around a continuous vertical camera journey:
 - **Wind Displacement (`shaders/floor_wind.vert`)**:
   Deforms vertices along normal vectors using a tiled wind noise map over time to simulate drifting snow.
 
-### 4.3. Extracted Copy & Brand Data
-All brand content, manifesto statements, portfolio summaries, and social media links have been extracted into `site-config.json` and `src/Config.js`.
+### 4.3. Copy & Brand Data
+Brand content, manifesto statements, portfolio summaries, and social media links are organized in `site-config.json` and `src/Config.js`.
 - **Manifesto**: *"Our mission is to build the next generation of consumer brands at the intersection of Community, AI, and crypto."*
 - **Portfolio 1**: Pudgy Penguins (`hash: "pudgy-penguins"`, founded 2021, acquired 2022).
 - **Portfolio 2**: OverpassIP (`hash: "overpass"`, launched 06/01/2023).

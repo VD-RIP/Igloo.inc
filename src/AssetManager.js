@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Asset Manager
+ * Igloo.inc Asset Manager
  * 
- * Reconstructs the multi-loader pipeline:
+ * Multi-loader pipeline:
  * - DracoLoader (Google Draco .drc compression for 3D meshes)
  * - KTX2Loader (Basis Universal GPU texture compression)
  * - EXRLoader (High dynamic range environment map)

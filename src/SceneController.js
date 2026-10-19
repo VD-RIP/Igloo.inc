@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Scene Controller
+ * Igloo.inc Scene Controller
  * 
- * Reconstructs:
+ * Orchestrates:
  * - WebGLRenderer configuration (PBR, sRGB, tone mapping)
  * - Three.js scene hierarchy (Igloo, Ground, Mountain, Shattered Rings, Cubes, Volumes)
  * - Uniform Buffer Object (UBO) sharing global time and camera state

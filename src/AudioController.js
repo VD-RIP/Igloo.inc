@@ -1,7 +1,7 @@
 /**
- * Igloo.inc Reverse-Engineered Audio Controller
+ * Igloo.inc Audio Controller
  * 
- * Reconstructs the multi-track ambient mixer and procedural SFX player
+ * Multi-track ambient mixer and procedural SFX player
  * based on Web Audio API and worker-assisted audio buffering.
  */
 

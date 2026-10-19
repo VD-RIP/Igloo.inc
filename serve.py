@@ -30,7 +30,7 @@ if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
-        print(f"Serving igloo.inc replica at http://localhost:{PORT}")
+        print(f"Serving igloo.inc at http://localhost:{PORT}")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:

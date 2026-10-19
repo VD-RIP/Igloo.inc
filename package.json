@@ -1,7 +1,7 @@
 {
-  "name": "igloo-inc-reverse-engineered",
+  "name": "igloo-inc",
   "version": "1.0.0",
-  "description": "Full reverse-engineered replica, asset tree, shaders, and architecture of igloo.inc",
+  "description": "Asset tree, shaders, and architecture of igloo.inc",
   "main": "src/SceneController.js",
   "type": "module",
   "scripts": {
@@ -11,7 +11,6 @@
   },
   "keywords": [
     "threejs",
-    "reverse-engineering",
     "webgl",
     "draco",
     "ktx2",
@@ -19,6 +18,5 @@
     "pudgy-penguins",
     "igloo"
   ],
-  "author": "Antigravity Pair Programmer",
   "license": "UNLICENSED"
 }
