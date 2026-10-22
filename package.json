@@ -1,7 +1,7 @@
 {
-  "name": "igloo-inc",
+  "name": "vishva-dev-portfolio",
   "version": "1.0.0",
-  "description": "Interactive 3D experience powered by Three.js, custom shaders, and WebGL",
+  "description": "Interactive 3D portfolio of Vishva Dev, student developer building with code and AI",
   "main": "src/SceneController.js",
   "type": "module",
   "scripts": {
@@ -10,15 +10,13 @@
     "dev": "vite"
   },
   "keywords": [
+    "portfolio",
+    "vishva-dev",
     "threejs",
     "webgl",
     "3d-graphics",
-    "shaders",
-    "draco",
-    "ktx2",
-    "basis",
-    "pudgy-penguins",
-    "igloo"
+    "shaders"
   ],
+  "author": "Vishva Dev <vishvadev543@gmail.com>",
   "license": "UNLICENSED"
 }

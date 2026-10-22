@@ -1,10 +1,10 @@
-# Igloo Inc. (`igloo.inc`) — 3D WebGL Web Experience
+# Vishva Dev — Interactive 3D Web Portfolio
 
-An offline-capable standalone build, asset tree, custom shaders, and modular architecture of the **[igloo.inc](https://igloo.inc)** website.
+A personal interactive 3D WebGL portfolio website showcasing projects, creative tools, launchers, and games developed by **Vishva Dev** (student developer building with code and AI).
 
 ---
 
-## 1. Tech Stack Overview
+## 1. Overview & Tech Stack
 
 | Component | Technology / Implementation |
 |---|---|
@@ -15,7 +15,7 @@ An offline-capable standalone build, asset tree, custom shaders, and modular arc
 | **Texture Compression** | **Basis Universal (`.ktx2`)** with multi-threaded WASM transcoder |
 | **Typography** | **Multi-channel Signed Distance Field (MSDF)** with Web Worker parser |
 | **Environment & Lighting**| High dynamic range **`.exr`** equirectangular environment map + PCSS shadows |
-| **Volumetric Effects** | **3D Texture Raymarching (VDB)** for social/onchain portals |
+| **Volumetric Effects** | **3D Texture Raymarching (VDB)** for social and project portals |
 | **Post-Processing** | **PMNDRS Postprocessing** + **3D Tetrahedral LUT Color Grading** |
 | **Audio Engine** | Multi-channel spatial **Web Audio API** with dedicated audio worker |
 
@@ -27,13 +27,13 @@ An offline-capable standalone build, asset tree, custom shaders, and modular arc
 ├── assets/
 │   ├── audio/              # 18 spatial audio tracks & SFX (.ogg)
 │   ├── fonts/              # IBM Plex Mono MSDF definitions (.json & .ktx2)
-│   ├── geometries/         # 18 Draco-compressed 3D models (.drc)
+│   ├── geometries/         # 14 Draco-compressed 3D models (.drc)
 │   ├── images/             # KTX2 textures, EXR envmap, and noise patterns
 │   │   ├── cubes/          # Ice cube textures, normal & roughness maps
 │   │   ├── igloo/          # Ground, mountain, cage, and scene LUTs
 │   │   ├── noises/         # Blue noise and tiling vectors
 │   │   ├── ui/             # UI datatextures (arrows, sound icon, logo)
-│   │   └── volumes/        # 3D VDB density volumes (peachesbody, x, medium)
+│   │   └── volumes/        # 3D VDB density volumes
 │   ├── libs/
 │   │   ├── basis/          # Basis Universal transcoder (JS + WASM)
 │   │   └── draco/          # Draco 3D mesh decoder (JS, wrapper, WASM)
@@ -41,8 +41,8 @@ An offline-capable standalone build, asset tree, custom shaders, and modular arc
 │   ├── bitmapworker-*.js   # ImageBitmap decoder web worker
 │   ├── exrworker-*.js      # EXR HDR texture worker
 │   ├── msdfworker-*.js     # MSDF font geometry generator worker
-│   ├── App3D-d68cb154.js   # Main 3D WebGL application bundle (1.48 MB)
-│   └── index-2e130bc1.js   # Svelte loader and mount orchestrator (16 KB)
+│   ├── App3D-d68cb154.js   # Main 3D WebGL application bundle
+│   └── index-2e130bc1.js   # Svelte loader and mount orchestrator
 ├── shaders/                # Custom GLSL shaders
 │   ├── volumetric_vdb.frag # 3D texture raymarching shader for portals
 │   ├── ice_interior.frag   # Refractive ice interior with dual caustics & noise
@@ -53,13 +53,14 @@ An offline-capable standalone build, asset tree, custom shaders, and modular arc
 │   ├── Config.js           # Site copy, portfolio items, palette, audio
 │   ├── AssetManager.js     # Draco, KTX2, EXR, and MSDF loading pipeline
 │   ├── AudioController.js  # Spatial audio engine & volume scheduler
-│   ├── CubesController.js  # Ice cubes (cube1, cube3) & internal models (pudgy, overpass)
+│   ├── CubesController.js  # Ice cubes & encapsulated 3D projects
 │   ├── VolumetricController.js # 3D VDB raymarching controller
 │   ├── PostProcessing.js   # 3D LUT grading & post-processing passes
 │   └── SceneController.js  # Main Three.js scene graph orchestrator
-├── index.html              # Offline-ready entrypoint
-├── site-config.json        # Structured site data and content
+├── index.html              # Entrypoint
+├── site-config.json        # Structured portfolio data and content
 ├── serve.py                # Local server with correct MIME types
+├── netlify.toml            # Netlify edge deployment configuration
 └── package.json            # Node.js runner scripts
 ```
 
@@ -67,11 +68,11 @@ An offline-capable standalone build, asset tree, custom shaders, and modular arc
 
 ## 3. How to Run Locally
 
-Because the application uses Web Workers, WebAssembly (`.wasm`), Draco (`.drc`), and compressed textures (`.ktx2`), modern browsers require it to be served via HTTP(S) with correct MIME types rather than `file://`.
-
-### Option A: Using the included Python server (Recommended)
+### Option A: Using the Python server (Recommended)
 ```bash
 python serve.py 8080
+# or
+py serve.py 8080
 ```
 Open **[http://localhost:8080](http://localhost:8080)** in Chrome, Edge, or Firefox.
 
@@ -84,38 +85,17 @@ npx serve -l 8080
 
 ---
 
-## 4. Architecture & Key Features
+## 4. Featured Portfolio Projects
 
-### 4.1. The 3D Scene Architecture
-The experience is built around a continuous vertical camera journey:
-1. **The Hero Igloo**:
-   - `igloo.drc`: The central igloo dome.
-   - `igloo_outline.drc` & `igloo_cage.drc`: Wireframe and structural ribs.
-   - `floor.drc` & `mountain.drc`: Procedural landscape with `wind_noise.ktx2` vertex displacement.
-2. **Shattered Rings**:
-   - Celestial rings (`shattered_ring.drc`, `shattered_ring2.drc`) rendered with custom emissive ambient occlusion (`_ao.ktx2`) and camera distance attenuation.
-3. **The Portfolio Ice Cubes**:
-   - `cube3.drc` containing `pudgy.drc` (Pudgy Penguins).
-   - `cube1.drc` containing `overpass_logo.drc` (OverpassIP).
-   - Ice materials use real physical transmission ($IOR \approx 1.31$, roughness $\approx 0.65$) paired with high-detail normal maps (`cube1_normal.ktx2`, `cube3_normal.ktx2`).
-   - Interior models use dual animated caustics (`caustics.ktx2`) and perlin advection noise (`perlin-datatexture.ktx2`).
-4. **Volumetric Social Portals (VDB Raymarching)**:
-   - Floating 3D volume bounding boxes sampling 3D texture maps:
-     - `peachesbody_64.ktx2` (LinkedIn portal)
-     - `x_64.ktx2` (X / Twitter portal)
-     - `medium_32.ktx2` (Medium portal)
-   - Raymarched with 64 steps inside the unit cube with custom density absorption.
-
-### 4.2. Shaders
-- **Dual Caustics (`shaders/ice_interior.frag`)**:
-  Computes moving caustics by sampling a caustics texture at two different scale and velocity offsets, taking `min(caustic1, caustic2)` to create sharp interference caustic lines.
-- **Tetrahedral Color Grading (`shaders/tetrahedral_lut.frag`)**:
-  Samples 3D tetrahedral color lookup tables (`cubes/cube_scene.ktx2` and `igloo/igloo_scene.ktx2`) to achieve cinema-grade color grading and contrast in WebGL.
-- **Wind Displacement (`shaders/floor_wind.vert`)**:
-  Deforms vertices along normal vectors using a tiled wind noise map over time to simulate drifting snow.
-
-### 4.3. Copy & Brand Data
-Brand content, manifesto statements, portfolio summaries, and social media links are organized in `site-config.json` and `src/Config.js`.
-- **Manifesto**: *"Our mission is to build the next generation of consumer brands at the intersection of Community, AI, and crypto."*
-- **Portfolio 1**: Pudgy Penguins (`hash: "pudgy-penguins"`, founded 2021, acquired 2022).
-- **Portfolio 2**: OverpassIP (`hash: "overpass"`, launched 06/01/2023).
+- **PhotoDev**: Browser-based Photoshop-inspired creative image editor.
+  - [Live Demo](https://photodev.netlify.app/)
+- **VX Launcher**: Custom Minecraft launcher with dedicated interface.
+  - [Live Demo](https://vxlauncher.netlify.app/)
+- **JARVIS**: AI-assistant-style project created by Vishva Dev.
+  - [Live Demo](https://jarvis-lv.netlify.app/)
+- **Mandaadi-inspired game**: Interactive game website inspired by the Mandaadi movie.
+  - [Live Demo](https://playmandaadi.netlify.app/)
+- **3D Experience Portfolio**:
+  - [GitHub Profile](https://github.com/VishvaGIT-hub)
+  - [Instagram](https://instagram.com/_just.vishva)
+  - Email: `vishvadev543@gmail.com`
