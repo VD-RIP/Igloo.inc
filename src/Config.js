@@ -35,52 +35,58 @@ export const Config = {
   social: [
     { name: "GH", link: "https://github.com/VishvaGIT-hub" },
     { name: "IG", link: "https://instagram.com/_just.vishva" },
+    { name: "X", link: "https://x.com/VishvaXOfficial" },
+    { name: "MED", link: "https://medium.com/@vishvadev543" },
     { name: "MAIL", link: "mailto:vishvadev543@gmail.com" },
   ],
 
   portfolioCubes: [
     {
-      id: "photodev",
-      title: "PORTFOLIO_01 PhotoDev",
+      id: "photodev-jarvis",
+      title: "PORTFOLIO_01 PhotoDev & JARVIS",
       date: "2024",
       temperature: 0,
       cubeModel: "cube3",
       innerModel: "pudgy",
       scale: 1.1,
-      summary: "PhotoDev is a browser-based creative image editor project inspired by Photoshop, built as a web-based creative tool. It offers an interactive canvas for in-browser editing, layers, and graphic experimentation.",
+      summary: "PhotoDev is a browser-based creative image editor project inspired by Photoshop, built as an interactive web tool for digital graphics and canvas editing. JARVIS is an AI-assistant-style project created by Vishva Dev, exploring custom assistant interactions and smart automated workflows.",
       socialLinks: [
         { name: "IG", link: "https://instagram.com/_just.vishva" },
+        { name: "X", link: "https://x.com/VishvaXOfficial" },
         { name: "GH", link: "https://github.com/VishvaGIT-hub" },
       ],
       links: [
-        { name: "Demo", link: "https://photodev.netlify.app/" },
+        { name: "PhotoDev Demo", link: "https://photodev.netlify.app/" },
+        { name: "JARVIS Demo", link: "https://jarvis-lv.netlify.app/" },
         { name: "GitHub", link: "https://github.com/VishvaGIT-hub" },
       ],
     },
     {
-      id: "vx-launcher",
-      title: "PORTFOLIO_02 VX Launcher",
+      id: "vxlauncher-mandaadi",
+      title: "PORTFOLIO_02 VX Launcher & Mandaadi",
       date: "2024",
       temperature: -3,
       cubeModel: "cube1",
       innerModel: "overpass_logo",
       scale: 1.2,
-      summary: "VX Launcher is a custom Minecraft launcher project developed by Vishva Dev. Designed as a dedicated game launcher with an intuitive interface, profile management, and smooth game launching workflow.",
+      summary: "VX Launcher is a custom Minecraft launcher project developed by Vishva Dev featuring dedicated profile configuration and an intuitive launching workflow. Mandaadi is an interactive game website project inspired by the Mandaadi movie, crafted for immersive browser-based gameplay.",
       socialLinks: [
         { name: "IG", link: "https://instagram.com/_just.vishva" },
+        { name: "X", link: "https://x.com/VishvaXOfficial" },
         { name: "GH", link: "https://github.com/VishvaGIT-hub" },
       ],
       links: [
-        { name: "Demo", link: "https://vxlauncher.netlify.app/" },
+        { name: "VX Launcher Demo", link: "https://vxlauncher.netlify.app/" },
+        { name: "Mandaadi Demo", link: "https://playmandaadi.netlify.app/" },
         { name: "GitHub", link: "https://github.com/VishvaGIT-hub" },
       ],
     },
   ],
 
   volumetricSocialLinks: [
-    { title: "JARVIS AI", url: "https://jarvis-lv.netlify.app/", vdb: "peachesbody_64", scale: 1.2 },
-    { title: "Mandaadi Game", url: "https://playmandaadi.netlify.app/", vdb: "x_64", scale: 1.3 },
-    { title: "Instagram", url: "https://instagram.com/_just.vishva", vdb: "medium_32", scale: 1.25 },
+    { title: "Instagram", url: "https://instagram.com/_just.vishva", vdb: "peachesbody_64", scale: 1.2 },
+    { title: "X", url: "https://x.com/VishvaXOfficial", vdb: "x_64", scale: 1.3 },
+    { title: "Medium", url: "https://medium.com/@vishvadev543", vdb: "medium_32", scale: 1.25 },
   ],
 
   audio: {

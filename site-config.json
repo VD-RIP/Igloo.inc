@@ -32,14 +32,22 @@
       "link": "https://instagram.com/_just.vishva"
     },
     {
+      "name": "X",
+      "link": "https://x.com/VishvaXOfficial"
+    },
+    {
+      "name": "MED",
+      "link": "https://medium.com/@vishvadev543"
+    },
+    {
       "name": "MAIL",
       "link": "mailto:vishvadev543@gmail.com"
     }
   ],
   "cubes": [
     {
-      "title": "PORTFOLIO_01 PhotoDev",
-      "hash": "photodev",
+      "title": "PORTFOLIO_01 PhotoDev & JARVIS",
+      "hash": "photodev-jarvis",
       "date": "2024",
       "temp": 0,
       "obj": "cube3",
@@ -47,12 +55,16 @@
       "interior": {
         "enabled": true,
         "title": "////// Summary",
-        "content": "PhotoDev is a browser-based creative image editor project inspired by Photoshop, built as a web-based creative tool. It offers an interactive canvas for in-browser editing, layers, and graphic experimentation.",
+        "content": "PhotoDev is a browser-based creative image editor project inspired by Photoshop, built as an interactive web tool for digital graphics and canvas editing. JARVIS is an AI-assistant-style project created by Vishva Dev, exploring custom assistant interactions and smart automated workflows.",
         "socialTitle": "/// Connect",
         "social": [
           {
             "name": "IG",
             "link": "https://instagram.com/_just.vishva"
+          },
+          {
+            "name": "X",
+            "link": "https://x.com/VishvaXOfficial"
           },
           {
             "name": "GH",
@@ -62,8 +74,12 @@
         "linkTitle": "/// Visit",
         "links": [
           {
-            "name": "Demo",
+            "name": "PhotoDev Demo",
             "link": "https://photodev.netlify.app/"
+          },
+          {
+            "name": "JARVIS Demo",
+            "link": "https://jarvis-lv.netlify.app/"
           },
           {
             "name": "GitHub",
@@ -75,8 +91,8 @@
       }
     },
     {
-      "title": "PORTFOLIO_02 VX Launcher",
-      "hash": "vx-launcher",
+      "title": "PORTFOLIO_02 VX Launcher & Mandaadi",
+      "hash": "vxlauncher-mandaadi",
       "date": "2024",
       "temp": -3,
       "obj": "cube1",
@@ -84,12 +100,16 @@
       "interior": {
         "enabled": true,
         "title": "////// Summary",
-        "content": "VX Launcher is a custom Minecraft launcher project developed by Vishva Dev. Designed as a dedicated game launcher with an intuitive interface, profile management, and smooth game launching workflow.",
+        "content": "VX Launcher is a custom Minecraft launcher project developed by Vishva Dev featuring dedicated profile configuration and an intuitive launching workflow. Mandaadi is an interactive game website project inspired by the Mandaadi movie, crafted for immersive browser-based gameplay.",
         "socialTitle": "/// Connect",
         "social": [
           {
             "name": "IG",
             "link": "https://instagram.com/_just.vishva"
+          },
+          {
+            "name": "X",
+            "link": "https://x.com/VishvaXOfficial"
           },
           {
             "name": "GH",
@@ -99,8 +119,12 @@
         "linkTitle": "/// Visit",
         "links": [
           {
-            "name": "Demo",
+            "name": "VX Launcher Demo",
             "link": "https://vxlauncher.netlify.app/"
+          },
+          {
+            "name": "Mandaadi Demo",
+            "link": "https://playmandaadi.netlify.app/"
           },
           {
             "name": "GitHub",
@@ -114,20 +138,20 @@
   ],
   "volumeLinks": [
     {
-      "title": "JARVIS AI",
-      "url": "https://jarvis-lv.netlify.app/",
+      "title": "Instagram",
+      "url": "https://instagram.com/_just.vishva",
       "vdb": "peachesbody_64",
       "scale": 1.2
     },
     {
-      "title": "Mandaadi Game",
-      "url": "https://playmandaadi.netlify.app/",
+      "title": "X",
+      "url": "https://x.com/VishvaXOfficial",
       "vdb": "x_64",
       "scale": 1.3
     },
     {
-      "title": "Instagram",
-      "url": "https://instagram.com/_just.vishva",
+      "title": "Medium",
+      "url": "https://medium.com/@vishvadev543",
       "vdb": "medium_32",
       "scale": 1.25
     }
