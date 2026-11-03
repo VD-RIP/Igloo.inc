@@ -19,6 +19,14 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         '.woff': 'font/woff',
     }
 
+    def do_GET(self):
+        # Block access to .git or any hidden files/directories
+        clean_path = self.path.split('?')[0].split('#')[0]
+        if '/.' in clean_path or clean_path.startswith('.'):
+            self.send_error(404, "Not Found")
+            return
+        super().do_GET()
+
     def end_headers(self):
         # Enable CORS and SharedArrayBuffer headers if needed
         self.send_header('Access-Control-Allow-Origin', '*')
