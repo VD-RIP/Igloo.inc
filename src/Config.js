@@ -57,7 +57,7 @@ export const Config = {
       ],
       links: [
         { name: "PhotoDev Demo", link: "https://photodev.netlify.app/" },
-        { name: "JARVIS Demo", link: "https://jarvis-lv.netlify.app/" },
+        { name: "JARVIS Demo", link: "https://jarvis-asi.netlify.app/" },
         { name: "GitHub", link: "https://github.com/VishvaGIT-hub" },
       ],
     },

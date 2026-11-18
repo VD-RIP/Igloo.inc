@@ -27,7 +27,7 @@ A personal interactive 3D WebGL portfolio website showcasing projects, creative 
   - **PhotoDev**: Browser-based creative image editor project inspired by Photoshop.
     - [Live Demo](https://photodev.netlify.app/)
   - **JARVIS**: Custom AI assistant project exploring conversational and automated workflows.
-    - [Live Demo](https://jarvis-lv.netlify.app/)
+    - [Live Demo](https://jarvis-asi.netlify.app/)
 
 - **Portfolio 02 — VX Launcher & Mandaadi**:
   - **VX Launcher**: Custom Minecraft launcher with dedicated interface and launcher workflow.
